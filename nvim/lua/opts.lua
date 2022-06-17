@@ -9,7 +9,7 @@ require('generic')
  
 -- Make some aliases to avoid writing 'vim.' every time
 local cmd = vim.cmd
-local opt = vim.opts
+local opt = vim.opt
 
 --
 -- Primary settings
@@ -21,7 +21,7 @@ cmd [[
 ]]
 
 -- Useful cursor options
-opt.colorcolumn = 80
+opt.colorcolumn = '80'
 opt.cursorline = true
 opt.number = true
 opt.relativenumber = true
@@ -56,7 +56,7 @@ opt.lazyredraw = true
 
 -- Backup settings
 opt.backup = true
-opt.backupdir = createIfNeeded('$HOME/.nvim/files/backup/')
+opt.backupdir = createIfNeeded('$HOME/.nvim/files/backup//')
 opt.backupext = '-vimbackup'
 opt.backupskip = ''
 
@@ -66,7 +66,7 @@ opt.updatecount = 100
 
 -- Undo history settings
 opt.undofile = true
-opt.undodir = createIfNeeded('$HOME/.nvim/files/undo/')
+opt.undodir = createIfNeeded('$HOME/.nvim/files/undo//')
 
 -- Viminfo
-opt.viminfo = [['100,n]] .. createIfNeeded('$HOME/.nvim/files/undo/')
+opt.viminfo = [['100,n]] .. createIfNeeded('$HOME/.nvim/files/info//')

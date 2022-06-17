@@ -4,6 +4,5 @@
 --
 
 vim.cmd [[
-    colorscheme codedark
+    colorscheme darcula
 ]]
-

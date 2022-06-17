@@ -89,9 +89,4 @@ return require('packer').startup(function()
     use 'tomasiser/vim-code-dark'
 end)
 
--- Setup all the plugins are needed to
-require('lualine').setup()
-require('bufferline').setup()
-require('nvim-tree').setup()
-require('setuo').setup()
-require('Comment').setup() 
+
