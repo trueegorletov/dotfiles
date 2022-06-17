@@ -1,1 +1,0 @@
-/home/egor/Git/config-files/.zprofile
