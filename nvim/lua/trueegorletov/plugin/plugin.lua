@@ -9,6 +9,11 @@
 
 local utils = require('trueegorletov.utils')
 
+local M = {
+    -- This field is used to autoinstall plugins on first Nvim start
+    first_start = false,
+}
+
 -- Auto-installation script for unix systems
 if not utils.is_module_available('packer') then
     local msg = 'Unable to find packer.nvim installation... '
@@ -24,13 +29,13 @@ if not utils.is_module_available('packer') then
     else
         print(msg .. 'Can\'t auto-install, please do it manually.')
     end
+    M.first_start = true
     print('Please restart Neovim when installation is finished.')
-    os.exit(1)
 end
 
 vim.cmd [[packadd packer.nvim]]
 
-return require('packer').startup(function()
+require('packer').startup(function(use)
     -- Packer itself
     use 'wbthomason/packer.nvim'
 
@@ -40,7 +45,7 @@ return require('packer').startup(function()
     -- UI AND APPEARANCE STUFF
     --
 
-    -- A Neovim start screen for annoying you when you open it``
+    -- A Neovim start screen for annoying you when you open it
     use 'mhinz/vim-startify'
     -- A statusline with numerous options and written in lua
     use {
@@ -58,10 +63,17 @@ return require('packer').startup(function()
 
     -- A file explorer
     use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', }
+    -- A cool project manager
+    use "ahmedkhalf/project.nvim"
     -- A powerful searching plugin
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', }
     -- A nice file tag structure overview
     use 'majutsushi/tagbar'
+
+    -- Chad-movement plugin
+    use 'easymotion/vim-easymotion'
+    -- And another one, which gives some missing features
+    use 'justinmk/vim-sneak'
 
     -- A convenient way to resize splits
     use 'simeji/winresizer'
@@ -85,7 +97,7 @@ return require('packer').startup(function()
 
 
     --
-    -- AUTOCOMPLETE AND LSP THINGS
+    -- LSP AND AUTOCOMPLETE THINGS
     --
 
     -- Configuration options for native Neovim's LSP
@@ -110,10 +122,22 @@ return require('packer').startup(function()
 
     -- A powerful snippet engine written in lua
     use 'L3MON4D3/LuaSnip'
-    -- Treesitter integration plugin
-    use 'nvim-treesitter/nvim-treesitter'
+    -- Snippets for LuaSnip
+    use "rafamadriz/friendly-snippets"
 
-    use 'dense-analysis/ale'
+    -- Treesitter parser integration plugin
+    use 'nvim-treesitter/nvim-treesitter'
+    -- Treesitter-powered annotations generator
+    use 'danymat/neogen'
+
+
+
+    --
+    -- LANGUAGES PLUGINS
+    --
+
+    -- Rust support enhancements
+    use 'rust-lang/rust.vim'
 
 
 
@@ -133,4 +157,4 @@ return require('packer').startup(function()
     use 'doums/darcula'
 end)
 
-
+return M

@@ -10,7 +10,7 @@
 
 -- Add a command shortcut for utils.reload_config() function
 vim.cmd [[
-    command ReloadConfig :lua require('trueegorletov.utils').reload_config()
+command! ReloadConfig :lua require('trueegorletov.utils').reload_config()
 ]]
 
 
@@ -20,9 +20,9 @@ vim.cmd [[
 --
 
 vim.api.nvim_create_autocmd(
-{ 'BufWritePost' },
+{ 'BufWritePre' },
 {
     pattern = { '*' },
-    command = ':Autoformat',
+    command = ':silent Autoformat',
 }
 )
