@@ -61,12 +61,18 @@ require('packer').startup(function(use)
     -- UX PLUGINS
     --
 
-    -- A file explorer
-    use { 'kyazdani42/nvim-tree.lua', requires = 'kyazdani42/nvim-web-devicons', }
+    -- A file explorer written in lua
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+        },
+    }
     -- A cool project manager
     use "ahmedkhalf/project.nvim"
     -- A powerful searching plugin
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', }
+
     -- A nice file tag structure overview
     use 'majutsushi/tagbar'
 
@@ -94,6 +100,10 @@ require('packer').startup(function(use)
     -- Comment everything by gcc & gbc
     use 'numToStr/Comment.nvim'
 
+    -- A really nice window autoresizer
+    use 'camspiers/animate.vim'
+    use 'camspiers/lens.vim'
+
 
 
     --
@@ -105,7 +115,7 @@ require('packer').startup(function(use)
     --  A fancy GUI-based autoinstaller for LSP servers
     use 'williamboman/nvim-lsp-installer'
 
-    -- Powerful LSP-powered completion engine written in Lua
+    -- A powerful LSP-powered completion engine written in Lua
     use 'hrsh7th/nvim-cmp'
     -- A nvim-cmp source for native Neovim's LSP
     use 'hrsh7th/cmp-nvim-lsp'
@@ -138,6 +148,10 @@ require('packer').startup(function(use)
 
     -- Rust support enhancements
     use 'rust-lang/rust.vim'
+    -- Crates.io integration
+    use 'Saecki/crates.nvim'
+    -- A lot of useful things for Rust
+    use 'simrat39/rust-tools.nvim'
 
 
 
@@ -151,8 +165,12 @@ require('packer').startup(function(use)
     -- Utils and API plugins
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
+    use 'ryanoasis/vim-devicons'
+    use 'kyazdani42/nvim-web-devicons'
+    use 'adelarsq/vim-emoji-icon-theme'
+    use { 'hood/popui.nvim', requires = "RishabhRD/popfix" }
 
-    -- My favourite editor and lualine theme
+    -- My favourite themes
     use 'tomasiser/vim-code-dark'
     use 'doums/darcula'
 end)

@@ -1,6 +1,6 @@
 --
 --
--- Root .lua file for the plugin module
+-- Root .lua file of the plugin module
 --
 --
 

@@ -1,6 +1,6 @@
 --
 --
--- Root .lua file for the lsp module
+-- Root .lua file of the lsp module
 --
 --
 

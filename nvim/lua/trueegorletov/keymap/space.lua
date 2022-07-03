@@ -16,6 +16,10 @@ map('nv', '<space>q', function ()
     vim.cmd [[ silent! w! ]]
     vim.cmd [[ q ]]
 end)
+map('nv', '<space>x', function ()
+    vim.cmd [[ wa ]]
+    vim.cmd [[ tabclose ]]
+end)
 
 -- Hide search highlighting
 map('nv', '<space>h', '<cmd>nohlsearch<cr>')
@@ -23,11 +27,10 @@ map('nv', '<space>h', '<cmd>nohlsearch<cr>')
 -- LSP diagnostics
 map('n', '<space>e', vim.diagnostic.open_float)
 map('n', '<space>l', vim.diagnostic.setloclist)
+map('n', '<space>d', require('popui.diagnostics-navigator'))
 
--- Bind some NvimTree actions
+-- Toggle NvimTree
 map('nv', '<space><space>', '<cmd>NvimTreeToggle<cr>')
-map('nv', '<space>r', '<cmd>silent NvimTreeRefresh<cr>')
-map('nv', '<space>nf', '<cmd>silent NvimTreeFindFile<cr>')
 
 -- And Telescope fuzzy finder
 map('nv', '<space>ff', '<cmd>Telescope find_files<cr>')

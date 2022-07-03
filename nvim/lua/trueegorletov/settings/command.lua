@@ -4,6 +4,10 @@
 --
 --
 
+
+local M = {}
+
+
 --
 -- Custom commands definitions
 --
@@ -19,10 +23,17 @@ command! ReloadConfig :lua require('trueegorletov.utils').reload_config()
 -- Autocmd settings
 --
 
-vim.api.nvim_create_autocmd(
+local create_autocmd = vim.api.nvim_create_autocmd;
+
+create_autocmd(
 { 'BufWritePre' },
 {
     pattern = { '*' },
     command = ':silent Autoformat',
 }
 )
+
+
+
+
+return M

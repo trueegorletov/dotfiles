@@ -1,18 +1,13 @@
--- Nvim-lsp-installer config
-require('nvim-lsp-installer').setup {
-    -- All them don't work but let this settings be
+--
+--
+-- Main configuration file for all LSP things
+--
+--
 
-    automatic_installation = true,
-    ensure_installed = {'sumneko_lua', 'rust_analyzer'}
-}
 
 --
 -- Setup cmp-nvim-lsp
 --
-
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-vim.lsp.protocol.make_client_capabilities()
-)
 
 local lspconfig = require('lspconfig');
 
@@ -31,6 +26,34 @@ lspconfig.util.default_config,
     end
 }
 )
+
+
+
+--
+-- Config diagnostics appearance
+--
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = true,
+    severity_sort = false,
+})
+
+
+
+--
+-- Setup nvim-lsp-installer
+--
+require('nvim-lsp-installer').setup {
+    -- All them don't work but let this settings be
+
+    automatic_installation = true,
+    ensure_installed = {'sumneko_lua', 'rust_analyzer'}
+}
+
+
+
 
 return {
     config = lspconfig,

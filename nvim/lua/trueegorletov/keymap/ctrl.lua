@@ -33,19 +33,20 @@ function M.lsp(bufopts)
 end
 
 
--- nvim-cmp ctrl mappings
+-- Nvim-cmp ctrl mappings
 
 local cmp = require('cmp')
 
 function M.cmp(table)
-    table['<c-d>'] = cmp.mapping.scroll_docs(-4)
-    table['<c-f>'] = cmp.mapping.scroll_docs(4)
-    table['<c-e>'] = cmp.mapping.abort()
-    table['<cr>'] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
-        select = true,
-    }
-    table['<c-space>'] = cmp.mapping.complete()
+table['<cr>'] = cmp.mapping.confirm {
+            behavior = cmp.ConfirmBehavior.Insert,
+            select = true,
+        }
+        table['<c-d>'] = cmp.mapping.scroll_docs(-4)
+        table['<c-f>'] = cmp.mapping.scroll_docs(4)
+        table['<c-e>'] = cmp.mapping.abort()
+        table['<c-space>'] = cmp.mapping.complete()
+
 end
 
 

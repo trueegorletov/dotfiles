@@ -1,6 +1,6 @@
 --
 --
--- Root .lua file for the settings module
+-- Root .lua file of the settings module
 --
 --
 

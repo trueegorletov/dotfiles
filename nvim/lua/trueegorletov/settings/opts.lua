@@ -13,10 +13,11 @@ local utils = require('trueegorletov.utils')
 local cmd = vim.cmd
 local opt = vim.opt
 
+
+
 --
 -- Primary settings
 --
-
 
 cmd [[
 filetype indent plugin on
@@ -24,7 +25,7 @@ syntax enable
 ]]
 
 -- Useful cursor options
-opt.colorcolumn = '80'
+opt.colorcolumn = '100'
 opt.cursorline = true
 opt.number = true
 opt.relativenumber = true
@@ -43,6 +44,11 @@ opt.tabstop = 4
 opt.autoindent = true
 opt.smartindent = true
 
+-- Make CursorHold being triggered fine
+opt.updatetime = 250
+
+
+
 --
 -- Terminal-specific settings
 --
@@ -53,6 +59,8 @@ opt.termguicolors = true
 -- Redraw faster and lazily
 opt.ttyfast = true
 opt.lazyredraw = true
+
+
 
 --
 -- Advanced saving settings

@@ -31,17 +31,15 @@ common.cmp(M.cmp)
 ctrl.cmp(M.cmp)
 
 
--- Configure nvim-tree mappings
---
--- HINT: now it is all default
+-- NvimTree mappings
 M.nvim_tree = {
-    { key = { "<CR>", "o", "<2-LeftMouse>" }, action = "edit" },
+    { key = { "<cr>", "o", "<2-leftmouse>" }, action = "edit" },
     { key = "<c-e>",                          action = "edit_in_place" },
     { key = "O",                              action = "edit_no_picker" },
-    { key = { "<C-]>", "<2-RightMouse>" },    action = "cd" },
-    { key = "<c-v>",                          action = "vsplit" },
-    { key = "<c-x>",                          action = "split" },
-    { key = "<c-t>",                          action = "tabnew" },
+    { key = { "<C-]>", "<2-rightmouse>" },    action = "cd" },
+    { key = "w",                              action = "vsplit" },
+    { key = "W",                              action = "split" },
+    { key = "t",                              action = "tabnew" },
     { key = "<",                              action = "prev_sibling" },
     { key = ">",                              action = "next_sibling" },
     { key = "P",                              action = "parent_node" },
@@ -71,13 +69,14 @@ M.nvim_tree = {
     { key = "f",                              action = "live_filter" },
     { key = "F",                              action = "clear_live_filter" },
     { key = "q",                              action = "close" },
-    { key = "W",                              action = "collapse_all" },
+    { key = "<c-bs>",                         action = "collapse_all" },
     { key = "E",                              action = "expand_all" },
     { key = "S",                              action = "search_node" },
     { key = ".",                              action = "run_file_command" },
     { key = "<c-i>",                          action = "toggle_file_info" },
     { key = "g?",                             action = "toggle_help" },
 }
+
 
 
 return M

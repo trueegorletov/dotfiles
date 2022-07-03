@@ -1,6 +1,6 @@
 --
 --
--- Root .lua file of the keymap module
+-- Root .lua file of the lang module
 --
 --
 

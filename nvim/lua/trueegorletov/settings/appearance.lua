@@ -5,7 +5,15 @@
 --
 
 vim.cmd [[
-colorscheme darcula
+colorscheme codedark
 ]]
 
-vim.opt.guifont = 'JetBrainsMono Nerd Font:h15'
+vim.opt.guifont = 'JetBrainsMono Nerd Font:h14'
+
+
+return {
+    chadtree = {
+        icon_glyph_set = 'emoji',
+        text_colour_set = 'env',
+    }
+}

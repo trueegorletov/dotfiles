@@ -6,20 +6,21 @@
 
 local keymap = require('trueegorletov.keymap.keymap')
 local map = keymap.map
+local remap = keymap.remap
 
 local M = {}
 
 
 -- Make gt and gT work properly with bufferline
-map('nv', 'gt', '<cmd>BufferLineCycleNext<cr>')
-map('nv', 'gT', '<cmd>BufferLineCyclePrev<cr>')
+map('nv', 'gt', '<cmd>BufferLineCycleNext<cr>', remap())
+map('nv', 'gT', '<cmd>BufferLineCyclePrev<cr>', remap())
 
 -- With EasyMotion and numerous variety of ways to move it's much more effective
-map('nv', 'H', '^')
-map('nv', 'L', '$')
+map('nvo', 'H', '^')
+map('nvo', 'L', '$')
+map('nvo', '^', 'H')
+map('nvo', '$', 'L')
 
--- I don't want move my finger to shift one more time
-map('nv', ';', '<cmd>')
 
 -- Sneak.vim mappings
 map('nv', 's', '<Plug>Sneak_s')
@@ -41,10 +42,7 @@ function M.lsp(bufopts)
     map('n', 'gr', vim.lsp.buf.references, bufopts)
 end
 
--- nvim-cmp common mappings
-
-local luasnip = require('luasnip')
-local cmp = require('cmp')
+-- Nvim-cmp common mappings
 
 local function has_words_before()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -53,6 +51,9 @@ local function has_words_before()
     :sub(col, col)
     :match('%s') == nil
 end
+
+local luasnip = require('luasnip')
+local cmp = require('cmp')
 
 function M.cmp(table)
     table['<tab>'] = cmp.mapping(function(fallback)
@@ -83,9 +84,9 @@ end
 --
 
 -- Format the file in current buffer
-map('nv', '<f10>', '<cmd>Autoformat<cr>')
+map('nv', '<f9>', '<cmd>Autoformat<cr>')
 -- Display Tagbar for the file in current buffer
-map('nv', '<f11>', '<cmd>TagbarToggle<cr>')
+map('nv', '<f10>', '<cmd>TagbarToggle<cr>')
 -- Reload Neovim configuration files
 map('nv', '<f12>', '<cmd>ReloadConfig<cr>')
 

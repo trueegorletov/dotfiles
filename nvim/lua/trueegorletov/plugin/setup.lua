@@ -4,11 +4,34 @@
 --
 --
 
---
--- VARIABLES AND SETTINGS
---
 
 local g = vim.g
+local keymap = require('trueegorletov.keymap.complex')
+
+
+--
+-- ONE-LINE SETUPS
+--
+require('lualine').setup()
+require('Comment').setup()
+require('project_nvim').setup()
+require('neogen').setup()
+
+
+
+--
+-- SIMPLE SETUPS
+--
+
+-- Disable TreeSitter buggy highlighting
+require('nvim-treesitter.configs').setup {
+    highlight = {
+        enable = false,
+    },
+}
+
+-- Load friendly-snippets into LuaSnip
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Disable EasyMotion default bindings
 g.EasyMotion_do_mapping = 0
@@ -16,7 +39,15 @@ g.EasyMotion_do_mapping = 0
 -- Sneak repeating features
 g['sneak#s_next'] = 1
 
--- Vim-xkbswitch plugin lib path settings
+-- Enable popui.nvim
+vim.ui.select = require('popui.ui-overrider')
+vim.ui.input = require('popui.input-overrider')
+
+
+
+--
+-- VIM-XKBSWITCH
+--
 if vim.fn.has('unix') then
     if vim.fn.empty(vim.fn.glob('/usr/local/bin/libg3kbswitch.so')) then
         g.XkbSwitchLib = '/usr/local/lib/libg3kbswitch.so'
@@ -42,29 +73,20 @@ end
 
 
 --
--- ONE-LINE SETUPS
---
-require('lualine').setup()
-require('Comment').setup()
-require('project_nvim').setup()
-
-
-
---
--- SIMPLE SETUPS
+-- LENS
 --
 
--- Neogen integration with LuaSnip
-require('neogen').setup { snippet_engine = "luasnip" }
+-- Animation works badly with Neovide, so disable it
+g['lens#animate'] = 0
 
-require("luasnip.loaders.from_vscode").lazy_load()
+-- Disable Lens for NvimTree
+g['lens#disabled_filetypes'] = { 'NvimTree', 'qf' }
 
--- Disable TreeSitter buggy highlighting
-require('nvim-treesitter.configs').setup {
-    highlight = {
-        enable = false,
-    },
-}
+-- More resizing!
+g['lens#width_resize_min'] = 15
+g['lens#height_resize_min'] = 15
+g['lens#width_resize_max'] = 100
+g['lens#height_resize_max'] = 75
 
 
 
@@ -96,26 +118,30 @@ telescope.load_extension('projects')
 --
 -- NVIMTREE
 --
+
 local nvim_tree = require('nvim-tree')
 
 if not nvim_tree.setup_called then
-    nvim_tree.setup({
-        respect_buf_cwd = true,
-        update_cwd = true,
-        update_focused_file = {
-            enable = true,
-            update_cwd = true
-        },
+    nvim_tree.setup {
+        disable_netrw = true,
+        create_in_closed_folder = true,
+        sync_root_with_cwd = true,
+        reload_on_bufenter = true,
         view = {
             mappings = {
                 custom_only = true,
-                list = require("trueegorletov.keymap.complex").nvim_tree
+                list = keymap.nvim_tree
             }
+        },
+        update_focused_file = {
+            enable = true,
+        },
+        diagnostics = {
+            enable = true,
+            show_on_dirs = true,
         }
-    })
+    }
 end
-
-
 
 --
 -- BUFFERLINE
@@ -144,10 +170,8 @@ require('bufferline').setup {
             }
         },
 
-        -- LSP diagnostics status in tab title
+        -- LSP diagnostics status in the tab title
         diagnostics = 'nvim_lsp',
         diagnostics_update_in_insert = false,
     }
 }
-
-
