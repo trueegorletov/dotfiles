@@ -39,10 +39,6 @@ g.EasyMotion_do_mapping = 0
 -- Sneak repeating features
 g['sneak#s_next'] = 1
 
--- Enable popui.nvim
-vim.ui.select = require('popui.ui-overrider')
-vim.ui.input = require('popui.input-overrider')
-
 
 
 --

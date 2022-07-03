@@ -168,7 +168,7 @@ require('packer').startup(function(use)
     use 'ryanoasis/vim-devicons'
     use 'kyazdani42/nvim-web-devicons'
     use 'adelarsq/vim-emoji-icon-theme'
-    use { 'hood/popui.nvim', requires = "RishabhRD/popfix" }
+    use 'stevearc/dressing.nvim'
 
     -- My favourite themes
     use 'tomasiser/vim-code-dark'

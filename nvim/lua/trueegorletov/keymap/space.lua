@@ -27,7 +27,6 @@ map('nv', '<space>h', '<cmd>nohlsearch<cr>')
 -- LSP diagnostics
 map('n', '<space>e', vim.diagnostic.open_float)
 map('n', '<space>l', vim.diagnostic.setloclist)
-map('n', '<space>d', require('popui.diagnostics-navigator'))
 
 -- Toggle NvimTree
 map('nv', '<space><space>', '<cmd>NvimTreeToggle<cr>')
