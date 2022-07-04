@@ -31,16 +31,12 @@ function M.map(modes, lhs, rhs, opts)
 
     opts = opts or def
 
-    if string.find(modes, 'n') then
-        mapfunc('n', lhs, rhs, opts)
-    end
+    local avaliable_modes = { 'n', 'v', 'x', 's', 'o', 'i', 'l', 'c', 't' }
 
-    if string.find(modes, 'v') then
-        mapfunc('v', lhs, rhs, opts)
-    end
-
-    if string.find(modes, 'i') then
-        mapfunc('i', lhs, rhs, opts)
+    for _,mode in ipairs(avaliable_modes) do
+        if string.find(modes, mode) then
+            mapfunc(mode, lhs, rhs, opts)
+        end
     end
 end
 

@@ -83,10 +83,15 @@ end
 -- F-KEYS MAPPINGS
 --
 
+-- Toggle Floaterm
+map('nv', '<f8>', '<cmd>FloatermToggle<cr>')
+map('t', '<f8>', '<c-\\><c-n><cmd>FloatermToggle<cr>')
+-- Toggle UndoTree
+map('nv', '<f9>', '<cmd>UndotreeToggle<cr>')
 -- Format the file in current buffer
-map('nv', '<f9>', '<cmd>Autoformat<cr>')
+map('nv', '<f10>', '<cmd>Autoformat<cr>')
 -- Display Tagbar for the file in current buffer
-map('nv', '<f10>', '<cmd>TagbarToggle<cr>')
+map('nv', '<f11>', '<cmd>TagbarToggle<cr>')
 -- Reload Neovim configuration files
 map('nv', '<f12>', '<cmd>ReloadConfig<cr>')
 

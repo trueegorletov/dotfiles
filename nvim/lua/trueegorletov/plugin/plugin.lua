@@ -45,35 +45,39 @@ require('packer').startup(function(use)
     -- UI AND APPEARANCE STUFF
     --
 
-    -- A Neovim start screen for annoying you when you open it
+    -- Start screen for annoying you when you open Neovim
     use 'mhinz/vim-startify'
-    -- A statusline with numerous options and written in lua
+    -- Statusline with numerous options and written in lua
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true },
     }
     -- Same, but for the buffers/tabs bar
     use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons', }
-
-
+    -- Notification manager
+    use 'rcarriga/nvim-notify'
 
     --
     -- UX PLUGINS
     --
 
-    -- A file explorer written in lua
+    -- File explorer written in lua
     use {
         'kyazdani42/nvim-tree.lua',
         requires = {
             'kyazdani42/nvim-web-devicons',
         },
     }
-    -- A cool project manager
+    -- Cool project manager
     use "ahmedkhalf/project.nvim"
-    -- A powerful searching plugin
+    -- Powerful searching plugin
     use { 'nvim-telescope/telescope.nvim', requires = 'nvim-lua/plenary.nvim', }
+    -- Undo tree visualizer
+    use 'mbbill/undotree'
+    -- Floating terminal window
+    use 'voldikss/vim-floaterm'
 
-    -- A nice file tag structure overview
+    -- Nice file tag structure overview
     use 'majutsushi/tagbar'
 
     -- Chad-movement plugin
@@ -81,7 +85,7 @@ require('packer').startup(function(use)
     -- And another one, which gives some missing features
     use 'justinmk/vim-sneak'
 
-    -- A convenient way to resize splits
+    -- Convenient way to resize splits
     use 'simeji/winresizer'
     -- Killer-feature plugin for multiple layouts users
     use 'lyokha/vim-xkbswitch'
@@ -100,7 +104,7 @@ require('packer').startup(function(use)
     -- Comment everything by gcc & gbc
     use 'numToStr/Comment.nvim'
 
-    -- A really nice window autoresizer
+    -- Really nice window autoresizer
     use 'camspiers/animate.vim'
     use 'camspiers/lens.vim'
 
@@ -115,22 +119,22 @@ require('packer').startup(function(use)
     --  A fancy GUI-based autoinstaller for LSP servers
     use 'williamboman/nvim-lsp-installer'
 
-    -- A powerful LSP-powered completion engine written in Lua
+    -- Powerful LSP-powered completion engine written in Lua
     use 'hrsh7th/nvim-cmp'
-    -- A nvim-cmp source for native Neovim's LSP
+    -- Nvim-cmp source for native Neovim's LSP
     use 'hrsh7th/cmp-nvim-lsp'
-    -- A nvim-cmp source for displaying signatures help
+    -- Mvim-cmp source for displaying signatures help
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
-    -- A nvim-cmp source for buffers
+    -- Nvim-cmp source for buffers
     use 'hrsh7th/cmp-buffer'
-    -- A nvim-cmp source for filesystem paths
+    -- Nvim-cmp source for filesystem paths
     use 'hrsh7th/cmp-path'
-    -- A nvim-cmp source for command line
+    -- Nvim-cmp source for command line
     use 'hrsh7th/cmp-cmdline'
-    -- A nvim-cmp source with LuaSnip integration
+    -- Nvim-cmp source with LuaSnip integration
     use 'saadparwaiz1/cmp_luasnip'
 
-    -- A powerful snippet engine written in lua
+    -- Powerful snippet engine written in lua
     use 'L3MON4D3/LuaSnip'
     -- Snippets for LuaSnip
     use "rafamadriz/friendly-snippets"

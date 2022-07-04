@@ -119,6 +119,9 @@ local nvim_tree = require('nvim-tree')
 
 if not nvim_tree.setup_called then
     nvim_tree.setup {
+        open_on_setup = true,
+        open_on_setup_file = true,
+        open_on_tab = true,
         disable_netrw = true,
         create_in_closed_folder = true,
         sync_root_with_cwd = true,
