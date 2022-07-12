@@ -1,0 +1,191 @@
+let mapleader = "\"
+
+set ignorecase smartcase
+set NERDTree
+set hlsearch
+set showmode
+set scrolloff=5
+set history=1000
+set surround
+set incsearch
+set relativenumber
+set number
+set smartcase
+set hlsearch
+set visualbell
+set noerrorbells
+set easymotion
+set commentary
+set ideajoin
+set exchange
+set multiple-cursors
+set sneak
+
+" It is really more convenient with all these Sneak and EasyMotion things
+nnoremap H ^
+nnoremap L $
+nnoremap ^ H
+nnoremap $ L
+vnoremap H ^
+vnoremap L $
+vnoremap ^ H
+vnoremap $ L
+onoremap H ^
+onoremap L $
+onoremap ^ H
+onoremap $ L
+
+" Easier movement without leaving insert mode
+inoremap <c-h> <left>
+inoremap <c-j> <down>
+inoremap <c-k> <up>
+inoremap <c-l> <right>
+
+
+nnoremap <space>rn :action RenameElement<cr>
+vnoremap <space>rn :action RenameElement<cr>
+nnoremap <space>cs :action ChangeSignature<cr>
+vnoremap <space>cs :action ChangeSignature<cr>
+
+" Clear the search buffer when hitting return
+nnoremap <space>h :nohlsearch<cr>
+
+" To copy text to the end-of-line, press Y.
+" This mapping sets up Y to be consistent with
+" the C and D operators, which act from the cursor
+" to the end of the line. The default behavior of Y
+" is to yank the whole line.
+nnoremap Y y$
+
+" Shortcut for escape
+imap jj <Esc>
+imap jk <Esc>
+
+nmap <cr> :action ReformatCode<cr> :wa<cr>
+
+" Quick window navigation
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" Shortcut for copying to/from System Clipboard
+vmap <leader>y "+y
+vmap <leader>d "+d
+nmap <leader>P "+P
+
+" Greatest remap EVER!!
+" Let me explain, this remap while in visiual mode
+" will delete what is currently highlighted and replace it
+" with what is in the register BUT it will YANK (delete) it
+" to a VOID register. Meaning I still have what I originally had
+" when I pasted. I don't loose the previous thing I YANKED!
+vnoremap <leader>p "_dP
+
+" Splitting Windows
+nmap <leader>v :vsplit<cr>
+nmap <leader>h :split<cr>
+
+" nmap <leader>fs :action FileStructurePopup<cr>
+
+
+" Some search and replace shortcuts
+" nnoremap <leader><leader>r :%s///g<left><Left>
+" nnoremap <leader><leader>rc :%s///g<left><Left><Left>
+nnoremap <leader><leader>r :%s//g<left><Left>
+"" Visual Mode
+" xnoremap <leader><leader>r :s///g<left><Left>
+" xnoremap <leader><leader>rc :s///g<left><Left><Left>
+xnoremap <leader><leader>r :s//g<left><Left>
+
+"
+" Project Shortcuts
+"
+
+" Hide open panels
+nmap <space>w :action HideAllWindows<cr>
+
+" Open Global Find dialog box
+nmap <leader>fp :action FindInPath<cr>
+
+" Open Terminal
+nmap <leader>t :action ActivateTerminalToolWindow<cr>
+
+" Open Recent Project dialog box
+nmap <leader><leader>m :action ManageRecentProjects<cr>
+
+" Mapping to mimic BufferExplorer
+nmap <leader>sw :action Switcher<cr>
+nmap <leader>fb :action RecentFiles<cr>
+nmap <leader>ff :action GotoFile<cr>
+nmap <leader>fg :action SearchEverywhere<cr>
+nmap <leader><leader>b :action RecentFiles<cr>
+
+" Toggle code minimap
+nmap <leader>m :action CodeGlance.toggle<cr>
+
+" Focus the sidebar
+nnoremap <space><space> :action ActivateProjectToolWindow<cr>
+
+" Toggle ToggleDistractionFreeMode
+nmap <leader>df :action ToggleDistractionFreeMode<cr>
+
+" Quick Quite
+nnoremap <space>q :q <cr>
+
+"Coding Formating
+" ===============
+nnoremap <leader>cf :action ReformatCode<cr>
+nnoremap <leader>pcf :action Tool_External Tools_PHP CS Fixer<cr>
+
+
+" XDebug Shortcuts
+nmap <leader>xl :action PhpListenDebugAction<cr>
+nmap <leader>bp :action ToggleLineBreakpoint<cr>
+" Jump to Source
+nmap <C>] :action XDebugger.JumpToSource
+
+" Some Git Shortcuts for view status, pull, and branches
+" Mapping mimic Fugitive in my native vim
+nmap <leader>gs :action CheckinProject<cr>
+nmap <leader>gc :action CheckinProject<cr>
+nmap <leader>ga :action Git.Add<cr>
+nmap <leader>gp :action Git.Pull<cr>
+nmap <leader>gn :action Annotate<cr>
+nmap <leader>gl :action Git.Log<cr>
+nmap <leader>go :action Github.Open.In.Browser<cr>
+nmap <leader>br :action Git.Branches<cr>
+nmap <leader>gb :action Git.Branches<cr>
+
+" View my customize Quicklist
+nmap <leader><leader>l :action QuickList.MyList<cr>
+
+" AceJump Plugin - Jump to Character
+nmap <leader><leader>w :action AceAction<cr>
+
+" Commenting
+nmap <leader>cc :action CommentByLineComment<cr>
+nmap <leader>cb :action CommentByBlockComment<cr>
+nmap <leader>c<space> :action CommentByLineComment<cr>
+nmap <leader>cb<space> :action CommentByBlockComment<cr>
+
+" Refactoring
+nmap <leader>rt :action Refactorings.QuickListPopupAction<cr>
+"nmap csw' :action Macro.surround_with_single_quote<cr>
+
+" Move visual block
+vnoremap J :m '>+1<cr>
+" xnoremap K :m '<-2<cr>
+vnoremap K :m '<-2<cr>
+
+" Put search results in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
+" Shortcut for copying to/from System Clipboard
+"" Copy (Yank)
+vmap <leader>y "+y
+"" Cut
+vmap <leader>d "+d
+"" Paste
+nmap <leader>P "+p
