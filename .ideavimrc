@@ -57,11 +57,13 @@ nnoremap <space>h :nohlsearch<cr>
 " is to yank the whole line.
 nnoremap Y y$
 
+nnoremap gh :action ShowErrorDescription<cr>
+
 " Shortcut for escape
 imap jj <Esc>
 imap jk <Esc>
 
-nmap <cr> :action ReformatCode<cr> :wa<cr>
+nmap <cr> :wa<cr>
 
 " Quick window navigation
 map <c-j> <c-w>j
