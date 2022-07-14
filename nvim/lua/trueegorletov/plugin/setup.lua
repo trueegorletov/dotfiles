@@ -16,6 +16,7 @@ require('lualine').setup()
 require('Comment').setup()
 require('project_nvim').setup()
 require('neogen').setup()
+require('which-key').setup{}
 
 
 
@@ -23,21 +24,21 @@ require('neogen').setup()
 -- SIMPLE SETUPS
 --
 
--- Disable TreeSitter buggy highlighting
-require('nvim-treesitter.configs').setup {
-    highlight = {
-        enable = false,
-    },
-}
-
 -- Load friendly-snippets into LuaSnip
 require("luasnip.loaders.from_vscode").lazy_load()
 
 -- Disable EasyMotion default bindings
 g.EasyMotion_do_mapping = 0
 
--- Sneak repeating features
-g['sneak#s_next'] = 1
+-- Treesitter settings
+require('nvim-treesitter.configs').setup {
+    -- Ensure these syntax parsers to be installed
+    ensure_installed = { "c", "lua", "rust" },
+
+    -- Automatically install missing parsers when entering buffer
+    auto_install = true,
+}
+
 
 
 

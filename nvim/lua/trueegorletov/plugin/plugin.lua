@@ -57,6 +57,9 @@ require('packer').startup(function(use)
     -- Notification manager
     use 'rcarriga/nvim-notify'
 
+    -- Blank lines indented
+    use 'lukas-reineke/indent-blankline.nvim'
+
     --
     -- UX PLUGINS
     --
@@ -107,6 +110,9 @@ require('packer').startup(function(use)
     -- Really nice window autoresizer
     use 'camspiers/animate.vim'
     use 'camspiers/lens.vim'
+
+    -- Keymap help
+    use 'folke/which-key.nvim'
 
 
 
@@ -175,8 +181,7 @@ require('packer').startup(function(use)
     use 'stevearc/dressing.nvim'
 
     -- My favourite themes
-    use 'tomasiser/vim-code-dark'
-    use 'doums/darcula'
+    use 'joshdick/onedark.vim'
 end)
 
 return M

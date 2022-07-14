@@ -11,6 +11,9 @@ local remap = keymap.remap
 local M = {}
 
 
+-- When I push Enter, please save the working buffer
+map('nv', '<cr>', ':w<cr>')
+
 -- Make gt and gT work properly with bufferline
 map('nv', 'gt', '<cmd>BufferLineCycleNext<cr>', remap())
 map('nv', 'gT', '<cmd>BufferLineCyclePrev<cr>', remap())
@@ -21,19 +24,25 @@ map('nvo', 'L', '$')
 map('nvo', '^', 'H')
 map('nvo', '$', 'L')
 
-
 -- Sneak.vim mappings
-map('nv', 's', '<Plug>Sneak_s')
-map('nv', 'S', '<Plug>Sneak_S')
+map('n', 's', '<Plug>Sneak_s')
+map('n', 'S', '<Plug>Sneak_S')
+map('o', 'z', '<Plug>Sneak_s')
+map('o', 'Z', '<Plug>Sneak_S')
+map('v', 's', '<Plug>Sneak_s')
+map('v', 'Z', '<Plug>Sneak_S')
 map('nv', 't', '<Plug>Sneak_t')
 map('nv', 'T', '<Plug>Sneak_T')
 map('nv', 'f', '<Plug>Sneak_f')
 map('nv', 'F', '<Plug>Sneak_F')
+map('nv', ';', '<Plug>Sneak_;')
+map('nv', '\\', '<Plug>Sneak_,')
+
+-- LSP-related common mappings
 
 map('n', '[d', vim.diagnostic.goto_prev)
 map('n', ']d', vim.diagnostic.goto_next)
 
--- LSP-related common mappings
 function M.lsp(bufopts)
     map('n', 'gD', vim.lsp.buf.declaration, bufopts)
     map('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -77,6 +86,7 @@ function M.cmp(table)
         end
     end, { 'i', 's' })
 end
+
 
 
 --

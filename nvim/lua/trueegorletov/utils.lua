@@ -26,7 +26,7 @@ function M.reload_config()
     require('plenary.reload').reload_module('trueegorletov')
     vim.cmd [[ :source $MYVIMRC ]]
 
-    print('Neovim config was reloaded')
+    vim.cmd [[ :echo "Neovim config was reloaded" ]]
 end
 
 return M

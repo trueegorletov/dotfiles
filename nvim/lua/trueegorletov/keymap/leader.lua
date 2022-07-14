@@ -9,7 +9,7 @@ local map = keymap.map
 local log = keymap.log
 
 -- Set the leader key
-vim.g.mapleader = ","
+vim.g.mapleader = "\\"
 
 -- EasyMotion mappings
 map('v', '<leader>w', '<Plug>(easymotion-bd-w)')
