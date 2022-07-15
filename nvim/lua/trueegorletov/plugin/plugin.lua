@@ -177,11 +177,11 @@ require('packer').startup(function(use)
     use 'nvim-lua/popup.nvim'
     use 'ryanoasis/vim-devicons'
     use 'kyazdani42/nvim-web-devicons'
-    use 'adelarsq/vim-emoji-icon-theme'
     use 'stevearc/dressing.nvim'
 
     -- My favourite themes
     use 'joshdick/onedark.vim'
+    use 'tomasiser/vim-code-dark'
 end)
 
 return M

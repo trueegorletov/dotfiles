@@ -19,6 +19,7 @@ local opt = vim.opt
 -- Primary settings
 --
 
+-- Basic settings
 cmd [[
 filetype indent plugin on
 syntax enable
@@ -46,6 +47,15 @@ opt.smartindent = true
 
 -- Make CursorHold being triggered fine
 opt.updatetime = 250
+
+
+
+--
+-- UI-specific settings
+--
+
+-- Don't render tildes
+vim.cmd [[ highlight EndOfBuffer guifg=bg ]]
 
 
 
