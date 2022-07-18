@@ -5,7 +5,7 @@
 --
 
 vim.cmd [[
-colorscheme onedark
+colorscheme monokai_pro
 ]]
 
 vim.opt.guifont = 'JetBrainsMono Nerd Font:h14'

@@ -20,6 +20,8 @@ map('i', '<c-j>', '<down>')
 map('i', '<c-k>', '<up>')
 map('i', '<c-l>', '<right>')
 
+map('ic', '<c-tab>', '<tab>')
+
 -- Enable windows resizing mode
 --
 -- It's default mapping, but overmind developer of the extension didn't like
@@ -38,14 +40,46 @@ end
 local cmp = require('cmp')
 
 function M.cmp(table)
-table['<cr>'] = cmp.mapping.confirm {
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        }
-        table['<c-d>'] = cmp.mapping.scroll_docs(-4)
-        table['<c-f>'] = cmp.mapping.scroll_docs(4)
-        table['<c-e>'] = cmp.mapping.abort()
-        table['<c-space>'] = cmp.mapping.complete()
+    table['<cr>'] = cmp.mapping.confirm {
+        behavior = cmp.ConfirmBehavior.Insert,
+        select = true,
+    }
+    table['<c-b>'] = cmp.mapping.scroll_docs(-4)
+    table['<c-f>'] = cmp.mapping.scroll_docs(4)
+    table['<C-n>'] = cmp.mapping({
+        c = function()
+            if cmp.visible() then
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            else
+                vim.api.nvim_feedkeys(t('<Down>'), 'n', true)
+            end
+        end,
+        i = function(fallback)
+            if cmp.visible() then
+                cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+            else
+                fallback()
+            end
+        end
+    })
+    table['<C-p>'] = cmp.mapping({
+        c = function()
+            if cmp.visible() then
+                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+            else
+                vim.api.nvim_feedkeys(t('<Up>'), 'n', true)
+            end
+        end,
+        i = function(fallback)
+            if cmp.visible() then
+                cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+            else
+                fallback()
+            end
+        end
+    })
+    table['<c-e>'] = cmp.mapping.abort()
+    table['<c-space>'] = cmp.mapping.complete()
 
 end
 

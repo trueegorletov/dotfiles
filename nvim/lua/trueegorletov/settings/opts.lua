@@ -45,6 +45,9 @@ opt.tabstop = 4
 opt.autoindent = true
 opt.smartindent = true
 
+-- Syntax-based vim folding
+opt.foldmethod = 'syntax'
+
 -- Make CursorHold being triggered fine
 opt.updatetime = 250
 

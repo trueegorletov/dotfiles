@@ -14,6 +14,12 @@ local M = {}
 -- When I push Enter, please save the working buffer
 map('nv', '<cr>', ':w<cr>')
 
+map('ic', '<tab>', 'copilot#Accept("<cr>")', keymap.default({
+    script = true,
+    expr = true,
+}))
+
+
 -- Make gt and gT work properly with bufferline
 map('nv', 'gt', '<cmd>BufferLineCycleNext<cr>', remap())
 map('nv', 'gT', '<cmd>BufferLineCyclePrev<cr>', remap())
@@ -37,6 +43,9 @@ map('nv', 'f', '<Plug>Sneak_f')
 map('nv', 'F', '<Plug>Sneak_F')
 map('nv', ';', '<Plug>Sneak_;')
 map('nv', '\\', '<Plug>Sneak_,')
+
+-- Esc to enter normal mode in terminal
+map('t', '<esc>', '<c-\\><c-n>')
 
 -- LSP-related common mappings
 
@@ -66,9 +75,7 @@ local cmp = require('cmp')
 
 function M.cmp(table)
     table['<tab>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            cmp.select_next_item()
-        elseif luasnip.expand_or_jumpable() then
+        if luasnip.expand_or_jumpable() then
             luasnip.expand_or_jump()
         elseif has_words_before() then
             cmp.complete()
@@ -77,9 +84,7 @@ function M.cmp(table)
         end
     end, { 'i', 's' })
     table['<s-tab>'] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-            cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
+        if luasnip.jumpable(-1) then
             luasnip.jump(-1)
         else
             fallback()
@@ -96,6 +101,7 @@ end
 -- Toggle Floaterm
 map('nv', '<f8>', '<cmd>FloatermToggle<cr>')
 map('t', '<f8>', '<c-\\><c-n><cmd>FloatermToggle<cr>')
+
 -- Toggle UndoTree
 map('nv', '<f9>', '<cmd>UndotreeToggle<cr>')
 -- Format the file in current buffer

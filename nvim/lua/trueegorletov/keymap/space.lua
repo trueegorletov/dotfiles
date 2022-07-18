@@ -30,6 +30,7 @@ map('n', '<space>l', vim.diagnostic.setloclist)
 
 -- Toggle NvimTree
 map('nv', '<space><space>', '<cmd>NvimTreeFocus<cr>')
+map('nv', '<space>t', '<cmd>NvimTreeToggle<cr>')
 
 -- And Telescope fuzzy finder
 map('nv', '<space>ff', '<cmd>Telescope find_files<cr>')

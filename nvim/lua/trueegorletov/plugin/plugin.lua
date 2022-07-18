@@ -57,9 +57,6 @@ require('packer').startup(function(use)
     -- Notification manager
     use 'rcarriga/nvim-notify'
 
-    -- Blank lines indented
-    use 'lukas-reineke/indent-blankline.nvim'
-
     --
     -- UX PLUGINS
     --
@@ -107,10 +104,6 @@ require('packer').startup(function(use)
     -- Comment everything by gcc & gbc
     use 'numToStr/Comment.nvim'
 
-    -- Really nice window autoresizer
-    use 'camspiers/animate.vim'
-    use 'camspiers/lens.vim'
-
     -- Keymap help
     use 'folke/which-key.nvim'
 
@@ -139,6 +132,9 @@ require('packer').startup(function(use)
     use 'hrsh7th/cmp-cmdline'
     -- Nvim-cmp source with LuaSnip integration
     use 'saadparwaiz1/cmp_luasnip'
+
+    -- GitHub Copilot
+    use 'github/copilot.vim'
 
     -- Powerful snippet engine written in lua
     use 'L3MON4D3/LuaSnip'
@@ -178,8 +174,11 @@ require('packer').startup(function(use)
     use 'ryanoasis/vim-devicons'
     use 'kyazdani42/nvim-web-devicons'
     use 'stevearc/dressing.nvim'
+    use 'mfussenegger/nvim-dap'
 
     -- My favourite themes
+    use 'phanviet/vim-monokai-pro'
+    use 'ErichDonGubler/vim-sublime-monokai'
     use 'joshdick/onedark.vim'
     use 'tomasiser/vim-code-dark'
 end)

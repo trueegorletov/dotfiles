@@ -70,24 +70,6 @@ end
 
 
 --
--- LENS
---
-
--- Animation works badly with Neovide, so disable it
-g['lens#animate'] = 0
-
--- Disable Lens for NvimTree
-g['lens#disabled_filetypes'] = { 'NvimTree', 'qf' }
-
--- More resizing!
-g['lens#width_resize_min'] = 15
-g['lens#height_resize_min'] = 15
-g['lens#width_resize_max'] = 100
-g['lens#height_resize_max'] = 75
-
-
-
---
 -- TELESCOPE
 --
 local telescope = require('telescope')
