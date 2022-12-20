@@ -4,6 +4,7 @@ if [[ ! -f ~/.antigen/antigen.zsh ]]; then
 fi
 source ~/.antigen/antigen.zsh
 
+
 antigen use oh-my-zsh
 
 antigen bundle git
@@ -21,5 +22,24 @@ antigen theme robbyrussell
 
 antigen apply
 
+
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
+
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+alias h='history'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ls='exa -la --icons --header'
+alias ccd='clear && cd' 
+
+
+mcd ()
+{
+    mkdir -p -- "$1" &&
+       cd -P -- "$1"
+}
